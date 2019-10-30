@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get '/' => 'sessions#welcome'
+  
   resources :experiences
   resources :concerts
   resources :artists
