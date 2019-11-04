@@ -6,7 +6,7 @@
         <%= f.collection_select :artist_id, Artist.all, :id, :name, include_blank: 'Select One'%>
 
     <p> Add a New Artist </p>
-        <%=f.fields_for :artist do |a| %>
+        <%=f.fields_for :artists do |a| %>
             <%= a.label :name %>
             <%= a.text_field :name %>
 

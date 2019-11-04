@@ -4,4 +4,6 @@ class Concert < ApplicationRecord
 
   has_many :experiences
   has_many :users, through: :experiences
+
+  accepts_nested_attributes_for :artist
 end
