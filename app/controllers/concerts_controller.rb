@@ -10,7 +10,7 @@ class ConcertsController < ApplicationController
 
     def new
         @concerts = Concert.new
-        @concerts.build_artist
+        @concerts.users.build
         #@concerts.review.build
     end
 
@@ -31,7 +31,7 @@ class ConcertsController < ApplicationController
     private
 
     def concert_params
-        params.require(:concert).permit(:city, :state, :venue, :date, :artist_id, artist_attributes: [:name] )
-      end
+        params.require(:concert).permit(:venue, :city, :state, :date, :artist_id, artist_attributes: [:name, :genre])
+    end
     
 end
