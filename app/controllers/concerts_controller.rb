@@ -10,7 +10,7 @@ class ConcertsController < ApplicationController
 
     def new
         @concerts = Concert.new
-        @concerts.users.build
+        @concerts.build_artist
         #@concerts.review.build
     end
 
