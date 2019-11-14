@@ -15,6 +15,7 @@ class ConcertsController < ApplicationController
     end
 
     def create
+       # byebug
         @concerts = Concert.new(concert_params)
         @concerts.user_id = session[:user_id]
         if @concerts.save
