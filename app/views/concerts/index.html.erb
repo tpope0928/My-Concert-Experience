@@ -1,0 +1,20 @@
+<h1>Concerts Attended</h1>
+ 
+<table>
+ 
+  <tbody>
+    <% @concerts.map do |c|%>
+      <tr>
+        <td><%= c.artist.name %></td>
+        <td><%= c.venue %></td>
+        <td><%= c.city %></td>
+        <td><%= c.state %></td>
+        <td><%= c.date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ 
+<br>
+ 
+<%= link_to "New concert", new_concert_path %>
