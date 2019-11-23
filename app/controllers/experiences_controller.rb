@@ -1,6 +1,6 @@
 class ExperiencesController < ApplicationController
     def new
-      if @concert = Concert.find_by_id(params[:concert_id])
+      if @experience = Experience.find_by_id(params[:concert_id])
         @experience = @concert.experiences.build
       else
         @experience = Experience.new
@@ -9,7 +9,7 @@ class ExperiencesController < ApplicationController
     
     def create
       #have current_user as well
-      @experience = current_user.concert.experiences.build(experience_params)
+      @experience = current_user.experiences.build(experience_params)
       if @experience.save
         redirect_to concert_experience_path(@experience)
       else
@@ -32,7 +32,7 @@ class ExperiencesController < ApplicationController
       private
     
       def experience_params
-        params.require(:experience).permit(:content, :rating)
+        params.require(:experience).permit(:content, :rating,:concert_id, concert_attributes: [:city, :state, :venue, :date] )
       end
 
     end
