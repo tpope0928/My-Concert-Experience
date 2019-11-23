@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   delete '/logout' => 'sessions#destroy'
   
-  resources :experiences
   resources :concerts do
-    resources :experiences, only: [:new, :index]
+    resources :experiences, only: [:new, :index, :create, :show]
   end
+  resources :experiences, only: [:index, :show, :new, :create]
   resources :artists
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
