@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   resources :concerts do
     resources :experiences, only: [:new, :index, :create, :show]
   end
+
   resources :experiences, only: [:index, :show, :new, :create]
   resources :artists
-  resources :users
+  
+  resources :users do
+    resources :concerts, only: [:index, :show, :new, :create]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
